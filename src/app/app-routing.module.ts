@@ -19,6 +19,10 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   }

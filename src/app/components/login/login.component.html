@@ -1,29 +1,48 @@
 <app-nav></app-nav>
-<div class="col-lg-4">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-horizontal">
-    <h3 class="panel-title">Ingresar</h3>
-    <div class="form-group">
-      <label>Usuario</label>
-      <input
-        id="username"
-        formControlName="username"
-        type="text"
-        class="form-control"
+<div class="container login-container">
+  <div class="row">
+    <div class="col-sm">
+      <img
+        src="../../../assets/img/login/pexels-pavel-danilyuk-7658382.jpg"
+        width="400px"
       />
     </div>
-    <div class="form-group">
-      <label>Email</label>
-      <input
-        id="password"
-        formControlName="password"
-        type="password"
-        class="form-control"
-      />
+    <div class="col-sm">
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        class="form-horizontal"
+      >
+        <h3 class="panel-title">Ingresar</h3>
+        <div class="form-group">
+          <label>Usuario</label>
+          <input
+            id="email"
+            formControlName="email"
+            type="email"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            id="password"
+            formControlName="password"
+            type="password"
+            class="form-control"
+          />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary login-btn">
+            Submit
+          </button>
+          <p class="login-p">
+            Aun no te haz registrado ?
+            <a routerLink="/register">Registrate Aquí</a>
+          </p>
+        </div>
+      </form>
     </div>
-    <div>
-      <button type="submit" class="btn-primary">Submit</button>
-    </div>
-  </form>
+  </div>
 </div>
-<p>Aun no te haz registrado ?. <a routerLink="/register">Registrate Aquí</a></p>
 <app-footer></app-footer>
