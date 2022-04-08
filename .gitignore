@@ -59,4 +59,4 @@ baseline.json
 # Husky
 .husky/_
 
-/deploy/
+/deploys/
