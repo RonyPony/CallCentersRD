@@ -15,16 +15,12 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: '**',
-    component: NotFoundComponent,
-  },
-  {
     path: 'login',
     component: LoginComponent,
   },
   {
-    path: 'register',
-    component: RegisterComponent,
+    path: '**',
+    component: NotFoundComponent,
   }
 ];
 

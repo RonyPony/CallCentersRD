@@ -7,19 +7,20 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  constructor() { }
   title = 'Ingreso';
   loginForm: FormGroup;
 
-  constructor() { }
+  
 
   ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl()
-    })
+    // this.loginForm = new FormGroup({
+    //   username: new FormControl(),
+    //   password: new FormControl()
+    // })
   }
 
   async onSubmit(): Promise<void> {
-    console.log(this.loginForm.value)
+    // console.log(this.loginForm.value)
   }
 }
