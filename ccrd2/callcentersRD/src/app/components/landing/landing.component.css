@@ -1,0 +1,45 @@
+article{
+    margin-top: 100px;
+    color: black;
+}
+span{
+    font-family: 'Indie Flower';
+    
+}
+p{
+    color: black;
+    font-size: x-large;
+}
+i{
+    color: black;
+}
+svg{
+    height: 25px;
+    float: right;
+    margin-left: 10px;
+    fill: dimgray;
+}
+.globo{
+    height: 200px;
+    margin-right: 40%;
+    transition: 2s;
+}
+.globo:hover{
+    height: 250px;
+}
+a{
+    font-size: 18px;
+    transition: .5s;
+}
+a:hover{
+    font-size: 25px;
+    /* font-family: 'Indie Flower'; */
+}
+img{
+    filter: grayscale(100%);
+    transition: .5s;
+}img:hover{
+    filter: grayscale(0%);
+    size: 50px;
+    /* background-color: aquamarine; */
+}

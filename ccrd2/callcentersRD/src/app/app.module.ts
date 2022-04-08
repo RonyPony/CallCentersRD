@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UnderconstructionComponent } from './components/underconstruction/underconstruction.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UnderconstructionComponent } from './components/underconstruction/under
     HomeComponent,
     NavComponent,
     FooterComponent,
-    UnderconstructionComponent
+    UnderconstructionComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
