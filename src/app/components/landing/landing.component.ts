@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -8,14 +8,12 @@ import Swal from 'sweetalert2';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-  go(){
-    Swal.fire(
-      "Hey !","Oye, nos alegra tenerte por aqui, pero aun seguimos trabajando, estamos organizando las conexiones para poder brindarte la forma mas facil de aplicar. Pronto estaremos de vuelta ","info"
-    )
+  go() {
+    this.router.navigate(["login"])
   }
 
 }

@@ -1,0 +1,27 @@
+<div class="col-lg-4">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+    <h3 class="panel-title">Ingresar</h3>
+    <div class="form-group">
+      <label>Usuario</label>
+      <input
+        id="username"
+        formControlName="username"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        class="form-control"
+      />
+    </div>
+    <div>
+      <button type="submit" class="btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+<p>Aun no te haz registrado ?. <a routerLink="/register">Registrate Aquí</a></p>
