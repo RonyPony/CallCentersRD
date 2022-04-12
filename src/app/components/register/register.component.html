@@ -6,13 +6,12 @@
       <form
         [formGroup]="registerForm"
         (ngSubmit)="onSubmit()"
-        class="form-horizontal"
+        class="form-horizontal extraSpace"
       >
-        <h3 class="panel-title">Registrarte</h3>
+        <h3 class="panel-title color">Registrarte</h3>
         <div class="form-group">
-          <label for="email">Correo Electrónico</label>
+          <label for="email" class="color">Correo Electrónico</label>
           <input
-            placeholder="Correo Electrónico"
             type="email"
             id="email"
             formControlName="email"
@@ -20,7 +19,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="name">Nombre</label>
+          <label for="name" class="color">Nombre</label>
           <input
             placeholder="Nombre"
             type="text"
@@ -30,7 +29,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="lastName">Apellido</label>
+          <label for="lastName" class="color">Apellido</label>
           <input
             placeholder="Apellido"
             type="text"
@@ -40,7 +39,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="password">Contraseña</label>
+          <label for="password" class="color">Contraseña</label>
           <input
             placeholder="Contraseña"
             type="password"

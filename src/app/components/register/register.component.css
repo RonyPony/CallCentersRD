@@ -1,2 +1,12 @@
 .register-btn {
 }
+
+.color{
+    color: gray;
+  }
+
+  .extraSpace{
+      padding-top: 22%;
+      padding-left: 10%;
+      padding-right: 10%;
+  }

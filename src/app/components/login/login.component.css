@@ -7,6 +7,9 @@
 body {
   color: black;
 }
+.color{
+  color: gray;
+}
 
 .login-container {
   padding-top: 15%;
