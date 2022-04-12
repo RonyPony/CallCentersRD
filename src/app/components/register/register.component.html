@@ -1,1 +1,61 @@
-<p>register works!</p>
+<app-nav></app-nav>
+<div class="container register-container">
+  <!-- <div class="row"></div> -->
+  <div class="row">
+    <div class="col-sm">
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()"
+        class="form-horizontal"
+      >
+        <h3 class="panel-title">Registrarte</h3>
+        <div class="form-group">
+          <label for="email">Correo Electrónico</label>
+          <input
+            placeholder="Correo Electrónico"
+            type="email"
+            id="email"
+            formControlName="email"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input
+            placeholder="Nombre"
+            type="text"
+            id="name"
+            formControlName="name"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido</label>
+          <input
+            placeholder="Apellido"
+            type="text"
+            id="lastName"
+            formControlName="lastName"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input
+            placeholder="Contraseña"
+            type="password"
+            id="password"
+            formControlName="password"
+            class="form-control"
+          />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary register-btn">
+            Enviar 🚀
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
