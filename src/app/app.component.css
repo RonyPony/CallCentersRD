@@ -1,7 +1,7 @@
 /* Use a media query to add a breakpoint at 800px: */
 #sect1 {  
     height: 650 px;  
-    color: #fff;
+    /* color: #fff; */
     /* background-image: url("../assets/img/bg.jpg");   */
     background-size: 100% ;  
     background-size: cover;  

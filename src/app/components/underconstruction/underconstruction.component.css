@@ -3,5 +3,7 @@ img{
 }
 
 article{
-    padding: 20%;
+    padding-top: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
