@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ConfigService } from '../../../app/services/config.service';
 import Swal from 'sweetalert2';
 import { Toast } from '../../../app/utils/notification.toast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { Toast } from '../../../app/utils/notification.toast';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private client: HttpClient, private config: ConfigService) { }
+  constructor(private client: HttpClient, private config: ConfigService,private router: Router) { }
   title = 'Ingreso';
   loginForm: FormGroup;
 
@@ -30,7 +31,8 @@ export class LoginComponent implements OnInit {
         userPassword: this.loginForm.value.password
       }).subscribe(
         (result) => {
-          Toast.fire({ icon: 'success', title: `Bienvenido ${result.name} !` })
+          Toast.fire({ icon: 'success', title: `Bienvenido ${result.name} !` });
+          this.router.navigate(["dashboard"])
         },
         (err: any) => {
           if (err.status === 401) {
