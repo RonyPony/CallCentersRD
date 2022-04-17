@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { configFactory, ConfigService } from './services/config.service';
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { configFactory, ConfigService } from './services/config.service';
     UnderconstructionComponent,
     LandingComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

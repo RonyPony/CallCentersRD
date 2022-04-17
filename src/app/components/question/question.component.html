@@ -1,0 +1,26 @@
+<div class="container question-container">
+  <div class="row" *ngIf="question.enable; disable">
+    <form
+      [formGroup]="questionForm"
+      (ngSubmit)="onSubmit()"
+      class="form-horizontal boottomSpace extraSpace"
+    >
+      <div class="form-group">
+        <h2>{{ question.question }}</h2>
+        <label for="response">Response</label>
+        <input
+          type="text"
+          formControlName="response"
+          [value]="response.responseContent"
+          name="response"
+          id="response"
+        />
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary login-btn">
+          Siguiente Pregunta ⏭️
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

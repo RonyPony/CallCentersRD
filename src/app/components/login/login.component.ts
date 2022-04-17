@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private client: HttpClient, private config: ConfigService,private router: Router) { }
+  constructor(private client: HttpClient, private config: ConfigService, private router: Router) { }
   title = 'Ingreso';
   loginForm: FormGroup;
 
@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
         userPassword: this.loginForm.value.password
       }).subscribe(
         (result) => {
+          sessionStorage.clear()
+          sessionStorage.setItem('name', result.name);
+          sessionStorage.setItem('userId', result.id);
           Toast.fire({ icon: 'success', title: `Bienvenido ${result.name} !` });
           this.router.navigate(["dashboard"])
         },
