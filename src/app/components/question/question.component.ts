@@ -32,6 +32,8 @@ export class QuestionComponent implements OnInit {
     enable: false,
   };
   userId: number;
+  questionNumber:number=0;
+  totalQuestions:number=0;
 
   response: ResponseInformation;
 
@@ -43,6 +45,7 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = Number(sessionStorage.getItem("userId"));
+    this.loadCounters();
     this.client
       .get<{
         id: number;
@@ -88,6 +91,18 @@ export class QuestionComponent implements OnInit {
 
     // console.log(this.response)
   }
+  loadCounters(){
+    this.client.get<{
+      answeredQuestions: number;
+      notAnsweredQuestions: number;
+    }>(`${this.config.config.apiUrl}/api/responses/responseCounter`, {
+      params: { userId: sessionStorage.getItem("userId") },
+    })
+    .subscribe((response)=>{
+      this.totalQuestions = response.answeredQuestions+response.notAnsweredQuestions;
+      this.questionNumber=response.answeredQuestions;
+    })
+  }
 
   sleep(milliseconds) {
     const date = Date.now();
@@ -113,9 +128,9 @@ export class QuestionComponent implements OnInit {
               Math.floor(Math.random() * this.possitiveMessages.length)
             ];
 
-          console.log(Toast.fire({ icon: "success", title: msg }));
+          // console.log(Toast.fire({ icon: "success", title: msg }));
 
-          // location.reload();
+          location.reload();
           // this.sleep(2000);
           // this.router.navigate(["dashboard"]);
         },

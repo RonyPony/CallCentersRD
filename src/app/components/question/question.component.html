@@ -3,7 +3,7 @@
     <form [formGroup]="questionForm" (ngSubmit)='onSubmit()'>
     <div class="card">
       <div class="card-header">
-        Pregunta 1 de 10
+        Pregunta {{questionNumber}} de {{totalQuestions}}
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ question.question }}</h5>
