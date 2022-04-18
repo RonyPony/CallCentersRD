@@ -1,89 +1,139 @@
-import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ConfigService } from 'src/app/services/config.service';
-import Swal from 'sweetalert2';
-import { QuestionInformation, ResponseInformation } from '../../interfaces/question-information.interface'
+import { HttpClient } from "@angular/common/http";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { ConfigService } from "src/app/services/config.service";
+import { Toast } from "src/app/utils/notification.toast";
+import Swal from "sweetalert2";
+import {
+  QuestionInformation,
+  ResponseInformation,
+} from "../../interfaces/question-information.interface";
 
 @Component({
-  selector: 'app-question',
-  templateUrl: './question.component.html',
-  styleUrls: ['./question.component.css']
+  selector: "app-question",
+  templateUrl: "./question.component.html",
+  styleUrls: ["./question.component.css"],
 })
 export class QuestionComponent implements OnInit {
   questionForm = new FormGroup({
-    respuesta: new FormControl('', Validators.required)
-  })
-
+    respuesta: new FormControl("", Validators.required),
+  });
+  possitiveMessages = ["Muy bien, sigue asi!", "Ya casi terminamos, continua!"];
   question: QuestionInformation = {
-    question: '',
+    question: "",
     creationDate: new Date(),
-    enable: false
+    enable: false,
   };
   userId: number;
 
-
   response: ResponseInformation;
 
-  constructor(private client: HttpClient, private config: ConfigService, private router: Router) { }
+  constructor(
+    private client: HttpClient,
+    private config: ConfigService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.userId = Number(sessionStorage.getItem('userId'));
-    this.client.get<{
-      id: number,
-      pregunta: string,
-      creationDate: Date,
-      enable: boolean
-    }>(`${this.config.config.apiUrl}/api/preguntas/oneQuestion`, { params: { userId: sessionStorage.getItem("userId") } }).subscribe(
-      (r) => {
-        if (r) {
-          this.question = {
-            id: r.id,
-            question: r.pregunta,
-            creationDate: r.creationDate,
-            enable: r.enable
+    this.userId = Number(sessionStorage.getItem("userId"));
+    this.client
+      .get<{
+        id: number;
+        pregunta: string;
+        creationDate: Date;
+        enable: boolean;
+      }>(`${this.config.config.apiUrl}/api/preguntas/oneQuestion`, {
+        params: { userId: sessionStorage.getItem("userId") },
+      })
+      .subscribe(
+        (r) => {
+          if (r) {
+            this.question = {
+              id: r.id,
+              question: r.pregunta,
+              creationDate: r.creationDate,
+              enable: r.enable,
+            };
+          } else {
+            Swal.fire(
+              "Oh 😅",
+              "Al parecer no tienes mas preguntas que responder. Te enviare a la pagina principal",
+              "info"
+            ).then(() => this.router.navigate([""]));
           }
-        } else {
-          Swal.fire("Oh 😅", "Al parecer no tienes mas preguntas que responder. Te enviare a la pagina principal", "info").then(() => this.router.navigate(['']))
+        },
+        (err) => {
+          if (err.status === 400) {
+            Swal.fire(
+              "Ups 😩",
+              "Ha ocurrido un error al tratar de cargar las preguntas del servidor. Intenta de nuevo mas tarde",
+              "error"
+            );
+          }
         }
-      },
-      (err) => {
-        if (err.status === 400) {
-          Swal.fire("Ups 😩", "Ha ocurrido un error al tratar de cargar las preguntas del servidor. Intenta de nuevo mas tarde", "error")
-        }
-      }
-    )
+      );
 
     this.response = {
       questionId: this.question.id,
       userId: this.userId,
-      responseContent: null
-    }
+      responseContent: null,
+    };
 
     // console.log(this.response)
+  }
 
-
+  sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
   }
 
   async onSubmit() {
     this.response.questionId = this.question.id;
-    this.response.responseContent = this.questionForm.get('respuesta')?.value
+    this.response.responseContent = this.questionForm.get("respuesta")?.value;
 
-    console.log(this.response)
+    console.log(this.response);
 
-    this.client.post(`${this.config.config.apiUrl}/api/responses`, this.response).subscribe(
-      (result) => {
-        location.reload();
-        // this.router.navigate(["blank"])
-      },
-      (err) => {
-        if (err.status >= 400 && err.status <= 500) {
-          Swal.fire("Ups 😩", "Ha ocurrido un error al tratar de enviar esta pregunta al servidor. Intenta de nuevo mas tarde", "error")
-        } else {
-          Swal.fire("Ups 😩", "Ha ocurrido un error al tratar de cargar las preguntas del servidor. Contacte al administrador", "error")
+    this.client
+      .post(`${this.config.config.apiUrl}/api/responses`, this.response)
+      .subscribe(
+        (result) => {
+          // this.router.navigate(["dashboard"]);
+          var msg =
+            this.possitiveMessages[
+              Math.floor(Math.random() * this.possitiveMessages.length)
+            ];
+
+          console.log(Toast.fire({ icon: "success", title: msg }));
+
+          // location.reload();
+          // this.sleep(2000);
+          // this.router.navigate(["dashboard"]);
+        },
+        (err) => {
+          if (err.status >= 400 && err.status <= 500) {
+            Swal.fire(
+              "Ups 😩",
+              "Ha ocurrido un error al tratar de enviar esta pregunta al servidor. Intenta de nuevo mas tarde",
+              "error"
+            );
+          } else {
+            Swal.fire(
+              "Ups 😩",
+              "Ha ocurrido un error al tratar de cargar las preguntas del servidor. Contacte al administrador",
+              "error"
+            );
+          }
         }
-      }
-    )
+      );
   }
 }
