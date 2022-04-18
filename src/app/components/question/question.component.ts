@@ -12,6 +12,9 @@ import { QuestionInformation, ResponseInformation } from '../../interfaces/quest
   styleUrls: ['./question.component.css']
 })
 export class QuestionComponent implements OnInit {
+  questionForm = new FormGroup({
+    respuesta: new FormControl('', Validators.required)
+  })
 
   question: QuestionInformation = {
     question: '',
@@ -20,7 +23,6 @@ export class QuestionComponent implements OnInit {
   };
   userId: number;
 
-  questionForm: FormGroup;
 
   response: ResponseInformation;
 
@@ -59,15 +61,21 @@ export class QuestionComponent implements OnInit {
       responseContent: null
     }
 
-    this.questionForm = new FormGroup({
-      response: new FormControl(this.response.responseContent, Validators.required)
-    })
+    // console.log(this.response)
+
+
   }
 
   async onSubmit() {
+    this.response.questionId = this.question.id;
+    this.response.responseContent = this.questionForm.get('respuesta')?.value
+
+    console.log(this.response)
+
     this.client.post(`${this.config.config.apiUrl}/api/responses`, this.response).subscribe(
       (result) => {
-        this.router.navigate(["blank"])
+        location.reload();
+        // this.router.navigate(["blank"])
       },
       (err) => {
         if (err.status >= 400 && err.status <= 500) {

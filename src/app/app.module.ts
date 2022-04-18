@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { configFactory, ConfigService } from './services/config.service';
 import { QuestionComponent } from './components/question/question.component';
+import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { QuestionComponent } from './components/question/question.component';
     LandingComponent,
     LoginComponent,
     RegisterComponent,
-    QuestionComponent
+    QuestionComponent,
+    DashboardHomeComponent
   ],
   imports: [
     BrowserModule,

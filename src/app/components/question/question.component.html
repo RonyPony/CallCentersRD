@@ -1,12 +1,25 @@
 <div class="container question-container">
   <div class="row" *ngIf="question.enable; disable">
-    <form
-      [formGroup]="questionForm"
-      (ngSubmit)="onSubmit()"
-      class="form-horizontal boottomSpace extraSpace"
-    >
-      <div class="form-group">
-        <h2>{{ question.question }}</h2>
+    <form [formGroup]="questionForm" (ngSubmit)='onSubmit()'>
+    <div class="card">
+      <div class="card-header">
+        Pregunta 1 de 10
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ question.question }}</h5>
+        <p class="card-text">Please provide youur answers.</p>
+        <input formControlName="respuesta" name="respuesta" type="text" class="form-control"
+        placeholder="Your Response">
+        <div class="btnContainer">
+          <button type="submit" class="btn btn-primary login-btn">
+            Siguiente Pregunta ⏭️
+          </button>
+        </div>
+      </div>
+    </div>
+  
+      <!-- <div class="form-group">
+        <h5 class="card-title">{{ question.question }}</h5>
         <label for="response">Response</label>
         <input
           type="text"
@@ -20,7 +33,7 @@
         <button type="submit" class="btn btn-primary login-btn">
           Siguiente Pregunta ⏭️
         </button>
-      </div>
+      </div> -->
     </form>
   </div>
 </div>
