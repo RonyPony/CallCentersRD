@@ -7,7 +7,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { UnderconstructionComponent } from './components/underconstruction/underconstruction.component';
+import { UnderConstructionComponent } from './components/underConstruction/underConstruction.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -26,7 +26,7 @@ import { MenuComponent } from './components/menu/menu.component';
     HomeComponent,
     NavComponent,
     FooterComponent,
-    UnderconstructionComponent,
+    UnderConstructionComponent,
     LandingComponent,
     LoginComponent,
     RegisterComponent,

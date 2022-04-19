@@ -1,15 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import {
-  AfterViewInit,
   Component,
-  ElementRef,
   OnInit,
-  ViewChild,
 } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ConfigService } from "src/app/services/config.service";
-import { Toast } from "src/app/utils/notification.toast";
 import Swal from "sweetalert2";
 import {
   QuestionInformation,
@@ -25,15 +21,15 @@ export class QuestionComponent implements OnInit {
   questionForm = new FormGroup({
     respuesta: new FormControl("", Validators.required),
   });
-  possitiveMessages = ["Muy bien, sigue asi!", "Ya casi terminamos, continua!"];
+  positiveMessages = ["Muy bien, sigue asi!", "Ya casi terminamos, continua!"];
   question: QuestionInformation = {
     question: "",
     creationDate: new Date(),
     enable: false,
   };
   userId: number;
-  questionNumber:number=0;
-  totalQuestions:number=0;
+  questionNumber: number = 0;
+  totalQuestions: number = 0;
 
   response: ResponseInformation;
 
@@ -41,7 +37,7 @@ export class QuestionComponent implements OnInit {
     private client: HttpClient,
     private config: ConfigService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.userId = Number(sessionStorage.getItem("userId"));
@@ -91,17 +87,17 @@ export class QuestionComponent implements OnInit {
 
     // console.log(this.response)
   }
-  loadCounters(){
+  loadCounters() {
     this.client.get<{
       answeredQuestions: number;
       notAnsweredQuestions: number;
     }>(`${this.config.config.apiUrl}/api/responses/responseCounter`, {
       params: { userId: sessionStorage.getItem("userId") },
     })
-    .subscribe((response)=>{
-      this.totalQuestions = response.answeredQuestions+response.notAnsweredQuestions;
-      this.questionNumber=response.answeredQuestions;
-    })
+      .subscribe((response) => {
+        this.totalQuestions = response.answeredQuestions + response.notAnsweredQuestions;
+        this.questionNumber = response.answeredQuestions;
+      })
   }
 
   sleep(milliseconds) {
@@ -124,8 +120,8 @@ export class QuestionComponent implements OnInit {
         (result) => {
           // this.router.navigate(["dashboard"]);
           var msg =
-            this.possitiveMessages[
-              Math.floor(Math.random() * this.possitiveMessages.length)
+            this.positiveMessages[
+            Math.floor(Math.random() * this.positiveMessages.length)
             ];
 
           // console.log(Toast.fire({ icon: "success", title: msg }));

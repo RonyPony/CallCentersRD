@@ -1,23 +1,28 @@
 <div class="container question-container">
   <div class="row" *ngIf="question.enable; disable">
-    <form [formGroup]="questionForm" (ngSubmit)='onSubmit()'>
-    <div class="card">
-      <div class="card-header">
-        Pregunta {{questionNumber}} de {{totalQuestions}}
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">{{ question.question }}</h5>
-        <p class="card-text">Please provide youur answers.</p>
-        <input formControlName="respuesta" name="respuesta" type="text" class="form-control"
-        placeholder="Your Response">
-        <div class="btnContainer">
-          <button type="submit" class="btn btn-primary login-btn">
-            Siguiente Pregunta ⏭️
-          </button>
+    <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+      <div class="card">
+        <div class="card-header">
+          Pregunta {{ questionNumber }} de {{ totalQuestions }}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ question.question }}</h5>
+          <p class="card-text">Please provide your answers.</p>
+          <input
+            formControlName="respuesta"
+            name="respuesta"
+            type="text"
+            class="form-control"
+            placeholder="Your Response"
+          />
+          <div class="btnContainer">
+            <button type="submit" class="btn btn-primary login-btn">
+              Siguiente Pregunta ⏭️
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  
+
       <!-- <div class="form-group">
         <h5 class="card-title">{{ question.question }}</h5>
         <label for="response">Response</label>
