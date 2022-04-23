@@ -17,12 +17,13 @@
             <td>
               <div class="container">
                 <div class="row">
-                  <button class="btn" (click)="showToast(q.id)">
+                  <button class="btn btn-info" (click)="showToast(q.id)">
                     Modificar
                   </button>
                 </div>
+                <br>
                 <div class="row">
-                  <button class="btn" (click)="deleteQuestion(q.id)">
+                  <button class="btn btn-danger" (click)="deleteQuestion(q.id)">
                     Eliminar
                   </button>
                 </div>
@@ -35,10 +36,13 @@
   </div>
   <div class="container">
     <div class="row">
-      <button class="btn" (click)="generateNew()">
+      <button class="btn btn-primary" (click)="generateNew()">
         Generar nueva pregunta
       </button>
     </div>
   </div>
+</div>
+<div class="space">
+
 </div>
 <app-footer></app-footer>
