@@ -21,3 +21,9 @@ body {
 .boottomSpace{
   padding-bottom: 23%;
 }
+
+.extraSpace{
+  padding-top: 22%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
