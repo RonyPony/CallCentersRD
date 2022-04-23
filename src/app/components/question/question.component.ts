@@ -53,7 +53,7 @@ export class QuestionComponent implements OnInit {
       })
       .subscribe(
         (r) => {
-          if (r) {
+          if (r && this.questionNumber <= this.totalQuestions) {
             this.question = {
               id: r.id,
               question: r.pregunta,
