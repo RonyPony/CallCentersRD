@@ -131,7 +131,14 @@ export class QuestionComponent implements OnInit {
           // this.router.navigate(["dashboard"]);
         },
         (err) => {
-          if (err.status >= 400 && err.status <= 500) {
+          if (err.status === 401) {
+            Swal.fire(
+              "Un Momento 🚨",
+              "Has completado todas las preguntas que debías de responder, Te enviare a la pantalla principal en breve 😉",
+              "warning"
+            ).then(() => { this.router.navigate(["dashboard"]) })
+          }
+          else if (err.status >= 402 && err.status <= 500) {
             Swal.fire(
               "Ups 😩",
               "Ha ocurrido un error al tratar de enviar esta pregunta al servidor. Intenta de nuevo mas tarde",

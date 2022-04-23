@@ -1,0 +1,82 @@
+<app-menu></app-menu>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <h1>Detalles de Usuario</h1>
+    </div>
+  </div>
+  <div class="row">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Nombre"
+            formControlName="name"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label">Apellido</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            placeholder="Apellido"
+            formControlName="lastName"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label"
+          >Correo Electrónico</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Correo Electrónico"
+            formControlName="email"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
+        <div class="col-sm-10">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Contraseña"
+            formControlName="password"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="id">Identificacion</label>
+        <span class="col-sm-10">{{ this.info.id }}</span>
+      </div>
+
+      <div class="row">
+        <label for="id">Fecha de Registro</label>
+        <span class="col-sm-10">{{ this.info.registrationDate | date }}</span>
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-primary login-btn">
+          Guardar cambios 💾
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

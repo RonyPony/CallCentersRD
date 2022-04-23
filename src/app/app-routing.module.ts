@@ -4,6 +4,7 @@ import { DashboardHomeComponent } from './components/dashboard/dashboard-home/da
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { QuestionComponent } from './components/question/question.component';
 import { RegisterComponent } from './components/register/register.component';
 
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'question',
     component: QuestionComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
     path: '**',

@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
         (result) => {
           sessionStorage.clear()
           sessionStorage.setItem('name', result.name);
+          sessionStorage.setItem('lastName', result.lastName);
           sessionStorage.setItem('userId', result.id);
           Toast.fire({ icon: 'success', title: `Bienvenido ${result.name} !` });
           this.router.navigate(["dashboard"])

@@ -18,6 +18,7 @@ import { configFactory, ConfigService } from './services/config.service';
 import { QuestionComponent } from './components/question/question.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MenuComponent } from './components/menu/menu.component';
     RegisterComponent,
     QuestionComponent,
     DashboardHomeComponent,
-    MenuComponent
+    MenuComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
