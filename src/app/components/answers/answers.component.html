@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <h1>My Answers</h1>
+            <h5>Total: {{responses.length}}</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                    <th>No. de la pregunta</th>
+                    <th>ID usuario</th>
+                    <th>Nombre de usuario</th>
+                    <th>Fecha de la respuesta</th>
+                </tr>
+                <tr *ngFor="let respuesta of responses">
+                    <td>{{respuesta.id}}</td>
+                    <td>{{respuesta.questionContent}}</td>
+                    <td>{{respuesta.responseContent}}</td>
+                    <td>{{respuesta.questionId}}</td>
+                    <td>{{respuesta.userId}}</td>
+                    <td>{{respuesta.responserName}}</td>
+                    <td>{{respuesta.answerDate}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

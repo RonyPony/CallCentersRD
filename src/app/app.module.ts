@@ -19,6 +19,7 @@ import { QuestionComponent } from './components/question/question.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AnswersComponent } from './components/answers/answers.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     QuestionComponent,
     DashboardHomeComponent,
     MenuComponent,
-    ProfileComponent
+    ProfileComponent,
+    AnswersComponent
   ],
   imports: [
     BrowserModule,
