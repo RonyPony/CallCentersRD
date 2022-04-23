@@ -6,9 +6,9 @@ export interface QuestionInformation {
 }
 
 export interface ResponseInformation {
-    id:number
-    responserName:string
-    answerDate:Date
+    id?:number
+    responserName?:string
+    answerDate?:Date
     questionId: number
     userId: number
     responseContent: string
