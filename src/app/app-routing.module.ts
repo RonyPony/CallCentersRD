@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AnswersComponent } from './components/answers/answers.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
+import { ExportdataComponent } from './components/exportdata/exportdata.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'answers',
     component: AnswersComponent,
+  },
+  {
+    path: 'export',
+    component: ExportdataComponent,
   },
   {
     path: '**',

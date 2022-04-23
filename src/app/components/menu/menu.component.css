@@ -1,12 +1,14 @@
 body {
   font-family: "Lato", sans-serif;
+  padding: 16px;
+  padding-top: 18%;
 }
 
 .menu {
   cursor: pointer;
 }
 
-.mainFont{
+.mainFont {
   font-family: 'Indie Flower', cursive;
   font-size: x-large;
   color: white;
@@ -26,7 +28,7 @@ body {
   padding-top: 60px;
 }
 
-.sidebar a{
+.sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -35,7 +37,7 @@ body {
   transition: 0.3s;
 }
 
-.sidebar span{
+.sidebar span {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 70px;

@@ -20,6 +20,7 @@ import { DashboardHomeComponent } from './components/dashboard/dashboard-home/da
 import { MenuComponent } from './components/menu/menu.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AnswersComponent } from './components/answers/answers.component';
+import { ExportdataComponent } from './components/exportdata/exportdata.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AnswersComponent } from './components/answers/answers.component';
     DashboardHomeComponent,
     MenuComponent,
     ProfileComponent,
-    AnswersComponent
+    AnswersComponent,
+    ExportdataComponent
   ],
   imports: [
     BrowserModule,
