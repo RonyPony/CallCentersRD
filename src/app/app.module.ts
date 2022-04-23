@@ -19,6 +19,7 @@ import { QuestionComponent } from './components/question/question.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { QuestionsComponent } from './components/questions/questions.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { ExportdataComponent } from './components/exportdata/exportdata.component';
 
@@ -38,7 +39,9 @@ import { ExportdataComponent } from './components/exportdata/exportdata.componen
     MenuComponent,
     ProfileComponent,
     AnswersComponent,
-    ExportdataComponent
+    ExportdataComponent,
+    QuestionsComponent,
+    AnswersComponent
   ],
   imports: [
     BrowserModule,

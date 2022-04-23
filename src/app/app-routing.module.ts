@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { QuestionComponent } from './components/question/question.component';
+import { QuestionsComponent } from './components/questions/questions.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardHomeComponent,
+  },
+  {
+    path: 'questions',
+    component: QuestionsComponent,
   },
   {
     path: 'question',
