@@ -63,7 +63,6 @@ export class ProfileComponent implements OnInit {
       Object.assign(this.info, this.profileForm.value)
       this.client.put(`${this.config.config.apiUrl}/api/users/${sessionStorage.getItem("userId")}`, this.info).subscribe(
         (result) => {
-          debugger;
           sessionStorage.clear()
           sessionStorage.setItem('name', this.info.name);
           sessionStorage.setItem('lastName', this.info.lastName);
@@ -71,8 +70,14 @@ export class ProfileComponent implements OnInit {
           Toast.fire({ icon: 'success', title: `Cambios aplicados !` });
         },
         (err) => {
-          debugger;
-          if (err.status == 400) {
+          if (err.status === 200) {
+            sessionStorage.clear()
+            sessionStorage.setItem('name', this.info.name);
+            sessionStorage.setItem('lastName', this.info.lastName);
+            sessionStorage.setItem('userId', String(this.info.id));
+            Toast.fire({ icon: 'success', title: `Cambios aplicados !` });
+          }
+          else if (err.status == 400) {
             Swal.fire("Información incorrecta 🧐", "Al parecer los nuevos datos que nos has dado no son validos, revíselos y trate de nuevo", "warning")
           }
           else if (err.status === 500) {

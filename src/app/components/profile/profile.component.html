@@ -62,13 +62,15 @@
       </div>
 
       <div class="row">
-        <label for="id">Identificacion</label>
+        <label for="id">Identificación</label>
         <span class="col-sm-10">{{ this.info.id }}</span>
       </div>
 
       <div class="row">
         <label for="id">Fecha de Registro</label>
-        <span class="col-sm-10">{{ this.info.registrationDate | date }}</span>
+        <span class="col-sm-10">{{
+          this.info.registrationDate | date: "short"
+        }}</span>
       </div>
 
       <div>
