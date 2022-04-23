@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+<div class="fluent-container">
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th *ngFor="let head of headElements">{{ head }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let q of questions">
+            <th scope="row">{{ q.id }}</th>
+            <td>{{ q.question }}</td>
+            <td>{{ q.creationDate | date: "short" }}</td>
+            <td>{{ q.enable ? "Si" : "No" }}</td>
+            <td>
+              <div class="container">
+                <div class="row">
+                  <button class="btn" (click)="showToast(q.id)">
+                    Modificar
+                  </button>
+                </div>
+                <div class="row">
+                  <button class="btn" (click)="deleteQuestion(q.id)">
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <button class="btn" (click)="generateNew()">
+        Generar nueva pregunta
+      </button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
