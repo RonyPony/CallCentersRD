@@ -17,8 +17,9 @@
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">×</a>
       <span>CCRD</span>
       <a href="dashboard">Home</a>
-      <a href="export">Export Data</a>
-      <a href="questions">Questions</a>
+      <a *ngIf="isAdmin" href="export">Export Data</a>
+      <a *ngIf="isAdmin" href="questions">Questions</a>
+      <a *ngIf="isAdmin" href="allUsers">All Users</a>
       <a href="answers">Answers</a>
       <a href="profile">My Profile</a>
       <a class="menu" (click)="logout()">Logout</a>

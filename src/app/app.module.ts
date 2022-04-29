@@ -23,6 +23,7 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { ExportdataComponent } from './components/exportdata/exportdata.component';
 import { CompletedComponent } from './components/completed/completed.component';
+import { AllUsersComponent } from './components/all-users/all-users.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CompletedComponent } from './components/completed/completed.component';
     ExportdataComponent,
     QuestionsComponent,
     AnswersComponent,
-    CompletedComponent
+    CompletedComponent,
+    AllUsersComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AllUsersComponent } from './components/all-users/all-users.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { CompletedComponent } from './components/completed/completed.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'completed',
     component: CompletedComponent,
+  },
+  {
+    path: 'allUsers',
+    component: AllUsersComponent,
   },
   {
     path: '**',

@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
       id: 0,
       name: "",
       lastName: "",
+      isAdmin : false,
       email: "",
       password: "",
       registrationDate: new Date(),

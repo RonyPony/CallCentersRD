@@ -9,8 +9,30 @@
         </div>
     </div>
     <div class="row">
+        <div *ngIf="!hasUserCompletedQuestions">
+            <div class="card border-danger mb-3" style="max-width: 18rem;">
+                <div class="card-header">Oh no!</div>
+                <div class="card-body text-danger">
+                  <h5 class="card-title">Proceso incompleto</h5>
+                  <p class="card-text">Hemos notado que aun no has terminado de responder todas las preguntas.</p>
+                  <button (click)="goQuestions()" class="btn btn-primary">Completar ahora</button>
+                </div>
+              </div>
+        </div>
+
+        <div *ngIf="hasUserCompletedQuestions">
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">YUPI!</div>
+                <div class="card-body text-success">
+                  <h5 class="card-title">Proceso Completado</h5>
+                  <p class="card-text">Si! ya has terminado de responder todas las preguntas, estamos analizando tu perfil para conseguirte el trabajo ideal.</p>
+                  <p>Alguna pregunta?</p>
+                  <button class="btn btn-success">Dejanos un whatsapp</button>
+                </div>
+              </div>
+        </div>
         <div class="table-responsive">
-            <table class="table">
+            <table *ngIf="responses.length!=0" class="table">
                 <tr>
                     <th>#</th>
                     <th>Pregunta</th>
@@ -30,6 +52,8 @@
                     <td>{{respuesta.answerDate}}</td>
                 </tr>
             </table>
+            
+
         </div>
     </div>
 </div>

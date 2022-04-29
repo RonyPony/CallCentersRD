@@ -1,0 +1,38 @@
+<app-menu></app-menu>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <h1>All Users</h1>
+            <h5>Total: {{users.length}}</h5>
+        </div>
+    </div>
+    <div class="row">
+        
+        
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Es admin</th>
+                    <th>Email</th>
+                    <th>Fecha de registro</th>
+                    <th>Fecha de actualizacion</th>
+                </tr>
+                <tr *ngFor="let usr of users">
+                    <td>{{usr.id}}</td>
+                    <td>{{usr.name}}</td>
+                    <td>{{usr.lastName}}</td>
+                    <td>{{usr.isAdmin}}</td>
+                    <td>{{usr.email}}</td>
+                    <td>{{usr.registrationDate}}</td>
+                    <td>{{usr.updatedAt}}</td>
+                </tr>
+            </table>
+            
+
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

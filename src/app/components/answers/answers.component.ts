@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProfileInformation } from 'src/app/interfaces/profile-information.interface';
 import { ResponseInformation } from 'src/app/interfaces/question-information.interface';
 import { ConfigService } from 'src/app/services/config.service';
@@ -13,11 +14,14 @@ import Swal from 'sweetalert2';
 export class AnswersComponent implements OnInit {
 
   responses: ResponseInformation[] = [];
-  constructor(private config: ConfigService,private http: HttpClient) { }
+  hasUserCompletedQuestions=false;
+  constructor(private router:Router,private config: ConfigService,private http: HttpClient) { }
 
   ngOnInit(): void {
+    var userId = sessionStorage.getItem("userId")
+    this.hasCompletedAllQuestions(userId);
     this.http.get<ResponseInformation[]>(
-      `${this.config.config.apiUrl}/api/responses/byUserId/${sessionStorage.getItem("userId")}`).subscribe(
+      `${this.config.config.apiUrl}/api/responses/byUserId/${userId}`).subscribe(
         (result) => {
           this.responses = result;
           
@@ -30,6 +34,24 @@ export class AnswersComponent implements OnInit {
           }
         }
       )
+  }
+
+  goQuestions(){
+    this.router.navigate(["dashboard"])
+  }
+
+  hasCompletedAllQuestions(userId: string) {
+    this.http.get<boolean>(`${this.config.config.apiUrl}/api/responses/hasUserCompletedQuestions/` + userId).subscribe(
+      (result) => {
+        console.log("hasUserCompletedQuestions>",result)
+        this.hasUserCompletedQuestions=result
+      },
+      (error) => {
+        if (error.status >= 500) {
+          Swal.fire("Ups 😩", "Se ha producido un error al tratar de obtener los datos del servidor. Trate nuevamente mas tarde", "error");
+        }
+      }
+    )
   }
 
 }
