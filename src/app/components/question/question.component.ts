@@ -1,4 +1,5 @@
 import { HttpClient } from "@angular/common/http";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 import {
   Component,
   OnInit,
@@ -40,6 +41,11 @@ export class QuestionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    var userId = sessionStorage.getItem('userId');
+    console.log("userId>", userId)
+
+
+    this.hasCompletedAllQuestions(userId);
     this.userId = Number(sessionStorage.getItem("userId"));
     this.loadCounters();
     this.client
@@ -86,6 +92,20 @@ export class QuestionComponent implements OnInit {
     };
 
     // console.log(this.response)
+  }
+  hasCompletedAllQuestions(userId: string) {
+    this.client.get<boolean>(`${this.config.config.apiUrl}/api/responses/hasUserCompletedQuestions/` + userId).subscribe(
+      (result) => {
+        if (result) {
+          this.router.navigate(["completed"])
+        }
+      },
+      (error) => {
+        if (error.status >= 500) {
+          Swal.fire("Ups 😩", "Se ha producido un error al tratar de obtener los datos del servidor. Trate nuevamente mas tarde", "error");
+        }
+      }
+    )
   }
   loadCounters() {
     this.client.get<{

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AnswersComponent } from './components/answers/answers.component';
+import { CompletedComponent } from './components/completed/completed.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
 import { ExportdataComponent } from './components/exportdata/exportdata.component';
 import { HomeComponent } from './components/home/home.component';
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'export',
     component: ExportdataComponent,
+  },
+  {
+    path: 'completed',
+    component: CompletedComponent,
   },
   {
     path: '**',

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../../../app/services/config.service';
 import { QuestionInformation } from '../../../app/interfaces/question-information.interface';
 import Swal from 'sweetalert2';
+import { NgLocalization } from '@angular/common';
 
 @Component({
   selector: 'app-questions',
@@ -18,6 +19,8 @@ export class QuestionsComponent implements OnInit {
   headElements = ['ID', 'Pregunta', 'Fecha de Creación', 'Esta Vigente', 'Opciones'];
 
   ngOnInit(): void {
+    
+  
     this.client.get<Array<{
       id: number;
       pregunta: string;
@@ -87,7 +90,7 @@ export class QuestionsComponent implements OnInit {
   async deactivate(id:number){
     this.client.post(`${this.config.config.apiUrl}/api/preguntas/disable/${String(id)}`,'').subscribe(
       (response)=>{
-        Swal.fire("Hurra 🥳", "La pregunta se ha desactivada con éxito 💪", "info")
+        Swal.fire("Hurra 🥳", "La pregunta se ha desactivada con éxito 💪", "info").then(()=>{location.reload()})
       }
     )
   }
@@ -101,8 +104,7 @@ export class QuestionsComponent implements OnInit {
     // )
 
     this.client.post(`${this.config.config.apiUrl}/api/preguntas/enable/${String(id)}`,{ responseType: 'text' }).subscribe(data => {
-      console.log(data);
-      Swal.fire("Hurra 🥳", "La pregunta se ha activado con éxito 💪", "info")
+      Swal.fire("Hurra 🥳", "La pregunta se ha activado con éxito 💪", "info").then(()=>{location.reload()})
   })
   }
 
@@ -197,5 +199,5 @@ export class QuestionsComponent implements OnInit {
       )
     }
   }
-
 }
+

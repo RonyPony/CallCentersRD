@@ -22,6 +22,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { ExportdataComponent } from './components/exportdata/exportdata.component';
+import { CompletedComponent } from './components/completed/completed.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ExportdataComponent } from './components/exportdata/exportdata.componen
     AnswersComponent,
     ExportdataComponent,
     QuestionsComponent,
-    AnswersComponent
+    AnswersComponent,
+    CompletedComponent
   ],
   imports: [
     BrowserModule,

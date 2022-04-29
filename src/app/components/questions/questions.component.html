@@ -6,6 +6,15 @@
     
     <div class="table-responsive">
       <h6>Total: {{questions.length}}</h6>
+      <div class="container">
+        <div class="row">
+          <button class="btn btn-primary" (click)="generateNew()">
+            Generar nueva pregunta
+          </button>
+        </div>
+      </div>
+    </div>
+    <br>
       <table class="table">
         <thead>
           <tr>
@@ -41,14 +50,7 @@
       </table>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <button class="btn btn-primary" (click)="generateNew()">
-        Generar nueva pregunta
-      </button>
-    </div>
-  </div>
-</div>
+  
 <div class="space">
 
 </div>
