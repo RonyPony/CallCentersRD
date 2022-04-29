@@ -1,3 +1,15 @@
 .space{
     padding-top: 10%;
 }
+
+.wideSpace{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+@media only screen and (max-width: 950px) {
+    .wideSpace{
+        /* margin: 10px; */
+    }
+  }

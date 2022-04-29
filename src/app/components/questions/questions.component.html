@@ -1,7 +1,11 @@
 <app-menu></app-menu>
 <div class="fluent-container">
+  
   <div class="row">
+    <h1>Preguntas</h1>
+    
     <div class="table-responsive">
+      <h6>Total: {{questions.length}}</h6>
       <table class="table">
         <thead>
           <tr>
@@ -17,13 +21,16 @@
             <td>
               <div class="container">
                 <div class="row">
-                  <button class="btn btn-info" (click)="showToast(q.id)">
+                  <button class="btn btn-info wideSpace" (click)="showToast(q.id)">
                     Modificar
                   </button>
-                </div>
-                <br>
-                <div class="row">
-                  <button class="btn btn-danger" (click)="deleteQuestion(q.id)">
+                  <button *ngIf="q.enable" (click)="deactivate(q.id)" class="btn btn-warning wideSpace">
+                    Desactivar
+                  </button>
+                  <button *ngIf="q.enable===false" (click)="activate(q.id)" class="btn btn-success wideSpace">
+                    Activar
+                  </button>
+                  <button class="btn btn-danger wideSpace" (click)="deleteQuestion(q.id)">
                     Eliminar
                   </button>
                 </div>

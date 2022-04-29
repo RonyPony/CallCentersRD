@@ -43,7 +43,6 @@ export class QuestionsComponent implements OnInit {
   }
 
   async showToast(id: number) {
-    debugger;
     let q = this.questions.filter((q) => q.id === id)[0]
 
     let qq = {
@@ -59,6 +58,7 @@ export class QuestionsComponent implements OnInit {
       inputLabel: 'Pregunta',
       inputValue: q.question,
       showCancelButton: true,
+      
       inputValidator: (value) => {
         if (!value) {
           return 'No puedes dejar el campo vació !'
@@ -82,6 +82,28 @@ export class QuestionsComponent implements OnInit {
         }
       )
     }
+  }
+
+  async deactivate(id:number){
+    this.client.post(`${this.config.config.apiUrl}/api/preguntas/disable/${String(id)}`,'').subscribe(
+      (response)=>{
+        Swal.fire("Hurra 🥳", "La pregunta se ha desactivada con éxito 💪", "info")
+      }
+    )
+  }
+
+
+  async activate(id:number){
+    // this.client.post(`${this.config.config.apiUrl}/api/preguntas/enable/${String(id)}`,'').subscribe(
+    //   (response)=>{
+    //     Swal.fire("Hurra 🥳", "La pregunta se ha activado con éxito 💪", "info")
+    //   }
+    // )
+
+    this.client.post(`${this.config.config.apiUrl}/api/preguntas/enable/${String(id)}`,{ responseType: 'text' }).subscribe(data => {
+      console.log(data);
+      Swal.fire("Hurra 🥳", "La pregunta se ha activado con éxito 💪", "info")
+  })
   }
 
   async deleteQuestion(id: number) {
