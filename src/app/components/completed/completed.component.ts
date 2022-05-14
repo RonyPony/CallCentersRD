@@ -14,7 +14,10 @@ export class CompletedComponent implements OnInit {
   }
 
   goAnswers(){
-    // this.router.navigate(["http://google.com"])
+    this.router.navigate(["answers"])
+  }
+
+  goWhatsapp(){
     window.location.href="https://wa.me/message/ILIESYFKIPVYE1";
   }
 

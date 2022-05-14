@@ -39,6 +39,9 @@ export class AnswersComponent implements OnInit {
   goQuestions(){
     this.router.navigate(["dashboard"])
   }
+  goWhatsapp(){
+    window.location.href="https://wa.me/message/ILIESYFKIPVYE1";
+  }
 
   hasCompletedAllQuestions(userId: string) {
     this.http.get<boolean>(`${this.config.config.apiUrl}/api/responses/hasUserCompletedQuestions/` + userId).subscribe(
