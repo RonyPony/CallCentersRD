@@ -14,7 +14,8 @@ export class CompletedComponent implements OnInit {
   }
 
   goAnswers(){
-    this.router.navigate(["answers"])
+    // this.router.navigate(["http://google.com"])
+    window.location.href="https://wa.me/message/ILIESYFKIPVYE1";
   }
 
 }
